@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeClan Library</title>
+</head>
+<body>
+
+    <h1>CodeClan Library</h1>
+
+    <h2>{{ title }}</h2>
+
+    <h3>Add New Book</h3>
+
+    <form action="/book_list" method="post">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" placeholder="Enter the title">
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="author" placeholder="Enter the author">
+      <label for="genre">Genre:</label>
+      <input name="genre" id="genre" placeholder="Enter the genre" rows="2" cols="30"></textarea>
+      <input type="submit" value="Add Book">
+    </form>
+
+    <h3>Current Book List</h3>
+
+    {% for book in books %}
+    <p> <a href="/books/{{loop.index0}}"> {{ book.title }}</a> : {{ book.author }} : {{ book.genre }} </p>  
+    {% endfor %}
+    
+</body>
+</html>
